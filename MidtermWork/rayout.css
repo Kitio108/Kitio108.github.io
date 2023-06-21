@@ -1,20 +1,30 @@
 @charset "utf-8";
 
 body {
-    background-color: slategrey;
+    font-family: Lato, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
 }
 
 header {
-    background-color: midnightblue;
-    color: ivory;
+    background-color: cadetblue;
+    color: whitesmoke;
 }
 
 main {
-    background-color: slategrey;
-    color: ivory;
+    background-image:
+        repeating-linear-gradient(90deg, #f7f7f7 0px 8px, #efefef 8px 32px),
+        repeating-linear-gradient(180deg, #000000 0px 8px, #080808 8px 32px);
+    background-blend-mode: difference;
+
+    color: dimgray;
+}
+
+.article {
+    background-color: rgba(255,255,255,0.5);
 }
 
 footer {
-    background-color: midnightblue;
-    color: ivory;
+    background-color: cadetblue;
+    color: whitesmoke;
 }
