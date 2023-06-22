@@ -7,15 +7,15 @@ body {
 }
 
 header {
-    background-color: cadetblue;
+    background-color: darkcyan;
     color: whitesmoke;
 }
 
 main {
     background-image:
-        repeating-linear-gradient(90deg, #f7f7f7 0px 8px, #efefef 8px 32px),
-        repeating-linear-gradient(180deg, #000000 0px 8px, #080808 8px 32px);
-    background-blend-mode: difference;
+        repeating-linear-gradient(90deg, rgba( 255, 255, 255, 1 ) 0px 8px, rgba( 247, 251, 251, 1 ) 8px 32px),
+        repeating-linear-gradient(180deg, rgba( 255, 255, 255, 1 ) 0px 8px, rgba( 247, 247, 251, 1 ) 8px 32px);
+    background-blend-mode: multiply;
 
     color: dimgray;
 }
@@ -24,7 +24,34 @@ main {
     background-color: rgba(255,255,255,0.5);
 }
 
-footer {
+.index {
     background-color: cadetblue;
     color: whitesmoke;
+    border-color: darkcyan !important;
+}
+
+.index-s {
+    background-color: lightblue;
+    color: dimgray;
+    border-color: darkcyan !important;
+}
+
+footer {
+    background-color: darkcyan;
+    color: whitesmoke;
+}
+
+body::-webkit-scrollbar {
+    width: 16px;
+}
+body::-webkit-scrollbar-button {
+    background-color: cadetblue;
+}
+body::-webkit-scrollbar-track {
+    background-color: lightblue;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 }
