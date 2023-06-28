@@ -10,21 +10,20 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="rayout.css">
         <title>超個人的ブログ日記</title>
+        <link rel="icon" type="image/png" href="Img/icon.png">
 
     </head>
 
     <body>
 
-        <header class="container-firld">
-
+        <header class="container-firld shadow">
             <h1 class="p-2 m-0 fw-bold">超個人的ブログ日記</h1>
-
         </header>
 
         <main>
 
             <!-- ================[ カルーセル部 ]================ -->
-            <div class="container-firld">
+            <div class="container-firld m-0 shadow">
 
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -61,7 +60,7 @@
             <!-- ================[ カルーセル部 終わり ]================ -->
 
             <!-- ================[ メイン部 ]================ -->
-            <div class="container-firld p-4 my-0">
+            <div class="container-xxl p-4 my-0">
 
                 <!-- ================[ 記事とサイド記事の行 ]================ -->
                 <div class="row">
@@ -70,30 +69,62 @@
                     <div class="col-12 col-md-8 col-lg-9">
 
                         <!-- ================[ 記事ブロック ]================ -->
-                        <div class="container-firld article p-3 mb-3 shadow d-flex flex-column">
+                        <div class="container-firld article px-4 py-4 mb-3 shadow d-flex flex-column">
 
                             <p class="m-0">2023.06.23</p>
-
                             <h2 class="index p-2 my-2 border-top border-5 fw-bold">マインクラフト 建築紹介</h2>
 
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
+                            <img src="Img/mc_matome/top.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="トップ画像">
+                            <p class="my-2">こんにちは、きてぃおです！<br>今回は私の趣味の一つである「マインクラフト」について記事を書いてみました。</p>
+                            <p class="my-2">マイクラは私の数少ないずっと遊んでいるゲームの一つで、中学生の頃からプレイしてきました。<br>最初は家族や友達とやる事が多かったのですが、ここ２年ぐらいはオンライン上でサーバーに参加して遊ぶことが多いですね。最近は主に<a href="https://minecraft.jp/servers/mc.misskey.io">iomc鯖</a>で遊んでいることが多いです。</p>
+                            <p class="my-2">マイクラにはサバイバル、建築、PVP、MODなど様々なプレイスタイルがありますが、私は主にサバイバルをしたり建築をしたりすることが多いです。そこで今回はその中でも「建築」にフォーカスして、私がこれまでに建てた建築を紹介したいと思います。紹介順番は適当です！</p>
+
+                            <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">Oceanus residence みなと台</h3>
+                            <img src="Img/mc_matome/residence_01.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="Oceanus residence みなと台">
+                            <p class="my-2">「さんぽシティ」という建築サーバーで建てたマンションです。<br>総戸数15戸の小さめの高級リゾートマンションという設定で建てました。</p>
+                            <img src="Img/mc_matome/residence_02.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="Oceanus residence みなと台">
+                            <p class="my-2">すぐ東には路線が通っていて、夜には鉄道橋と一緒にライトアップされます。<br>また、西側は海になっていて落ちる夕日を眺める事が出来ます。設計からのこだわりポイントです。</p>
+                            <p class="my-2">部屋は全て同じ構造で、1LDK(風呂トイレ別)になっています。どの部屋も大きなテラスが付いており、180度のオーシャンビューを堪能できます。</p>
+                            <p class="my-2">上手く明かりを使えた建築で、影MODを入れると凄く映えるところがお気に入りです。</p>
+
+                            <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">機械工場</h3>
+                            <img src="Img/mc_matome/factory_01.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="機械工場">
+                            <p class="my-2">これもさんぽシティ鯖で建てたものです。大企業の下請けで金属加工や機械部品の製造をしている設定の工場です。<br>手前が工場となっていて、奥側の灰色の建物はオフィス（開発部署）になっています。</p>
+                            <img src="Img/mc_matome/factory_02.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="機械工場">
+                            <p class="my-2">北側には配送トラックの駐車場があります。屋根の表現が納得いく感じにいったので良かったです。（というかこの構造を作りたいがために建てたところもあるかも）</p>
+                            <p class="my-2">普段は大型ビルとか住居系を建てることが多いので、リアルに作るのに結構苦労しました。<br>現実にはシンプルなデザインの工場が多いので、壁の装飾具合が難しかったです。</p>
+
+                            <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">住宅・アパート</h3>
+                            <div class="container-firld p-0 mx-0 my-2 d-flex flex-wrap">
+                                <img src="Img/mc_matome/house_01.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_02.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_03.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_04.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_05.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_06.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                            </div>
+                            <p class="my-2">これもさんぽシティ鯖で建てたものです。というか一番建築頑張ってたのはこの鯖に居た頃なので残り二つもこの鯖からの紹介になります。<br>ああああ</p>
+                            <div class="container-firld p-0 mx-0 my-2 d-flex flex-wrap">
+                                <img src="Img/mc_matome/house_07.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_08.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_09.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_10.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_11.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                                <img src="Img/mc_matome/house_12.png" class="d-inline-block w-50 rounded-3 border border-2 mx-0 my-0" alt="住宅">
+                            </div>
                             <p class="my-2">こんにちはああああああああああああああ</p>
 
                             <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">小見出し</h3>
-
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
+                            <img src="Img/mc_matome/top.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="あああああ">
                             <p class="my-2">こんにちはああああああああああああああ</p>
 
                             <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">小見出し</h3>
+                            <img src="Img/mc_matome/top.png" class="d-inline-block w-100 rounded-3 border border-2 mx-auto my-2" alt="あああああ">
+                            <p class="my-2">こんにちはああああああああああああああ</p>
 
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
-                            <p class="my-2">こんにちはああああああああああああああ</p>
+                            <h3 class="index-s p-2 mt-5 md-2 border-start border-5 fw-bold">あとがき</h3>
+                            <p class="my-2">ここまでご覧頂いた方、私の自己満に付き合って頂きありがとうございました！<br>まだまだ建てたいもの、表現したいものはたくさんあるので、これからも建築スキルは磨いていきたいなと思ってます。<br>気が向いたらまた紹介ページを作るかもしれません。それではまた～</p>
+
 
                         </div>
 
@@ -200,10 +231,8 @@
 
         </main>
 
-        <footer class="container-firld">
-
-            <p class="p-2 m-0 fw-bold">Created by Kitio</p>
-
+        <footer class="container-firld shadow">
+            <p class="p-2 m-0 fw-bold">Created by Kitio_com</p>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -211,4 +240,5 @@
                 crossorigin="anonymous"></script>
 
     </body>
+
 </html>
