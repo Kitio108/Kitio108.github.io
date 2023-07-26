@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: darkcyan;
+    background-color: darkslategray;
     color: whitesmoke;
 }
 
@@ -25,18 +25,18 @@ main {
 }
 
 .index {
-    background-color: cadetblue;
+    background-color: darkslategray;
     color: whitesmoke;
     border-color: darkcyan !important;
 }
 
 .index-s {
-    background-color: lightblue;
+    background-color: aquamarine;
     color: dimgray;
-    border-color: darkcyan !important;
+    border-color: darkslategray !important;
 }
 
 footer {
-    background-color: darkcyan;
+    background-color: darkslategray;
     color: whitesmoke;
 }
