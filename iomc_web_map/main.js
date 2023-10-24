@@ -1,4 +1,4 @@
-// —v‘fæ“¾
+// è¦ç´ å–å¾—
 var screen = document.getElementById('screen');
 var canvas = document.getElementById('map');
 var context = canvas.getContext('2d');
@@ -16,7 +16,7 @@ for (i = 0; i < maps.length; i++) {
     }
 }
 
-// ƒpƒ‰ƒ[ƒ^
+// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 var m_w = 300;
 var m_h = 150;
 var p_x = 0;
@@ -28,9 +28,9 @@ var is_mouse_down = false;
 var mouse_x = 0;
 var mouse_y = 0;
 
-// ƒƒCƒ“ˆ— ‚±‚±‚©‚ç ----------------------------------------------------------------
+// ãƒ¡ã‚¤ãƒ³å‡¦ç† ã“ã“ã‹ã‚‰ ----------------------------------------------------------------
 
-// ƒLƒƒƒ“ƒpƒXAƒ}ƒbƒv‰Šú‰»
+// ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã€ãƒãƒƒãƒ—åˆæœŸåŒ–
 resizeCanvas();
 for (i = 0; i < maps.length; i++) {
     for (j = 0; j < maps[i].length; j++) {
@@ -47,7 +47,7 @@ for (i = 0; i < maps.length; i++) {
     }
 }
 
-// ƒCƒxƒ“ƒgŠÖ”
+// ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize", drawMap);
 window.addEventListener("resize", drawInfo);
@@ -57,9 +57,9 @@ window.addEventListener("mouseup", function () { is_mouse_down = false; });
 window.addEventListener("mousemove", function (e) { moveMap(e);});
 window.addEventListener("wheel", function (e) { powerMap(e); });
 
-// ƒƒCƒ“ˆ— ‚±‚±‚Ü‚Å ----------------------------------------------------------------
+// ãƒ¡ã‚¤ãƒ³å‡¦ç† ã“ã“ã¾ã§ ----------------------------------------------------------------
 
-// ƒLƒƒƒ“ƒpƒX‚ÌƒŠƒTƒCƒY
+// ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã®ãƒªã‚µã‚¤ã‚º
 function resizeCanvas() {
     canvas.width = screen.clientWidth;
     canvas.height = screen.clientHeight;
@@ -68,7 +68,7 @@ function resizeCanvas() {
     console.log("resizeCanvas");
 }
 
-// ƒ}ƒbƒv‚Ì•`‰æ
+// ãƒãƒƒãƒ—ã®æç”»
 function drawMap() {
 
     context.imageSmoothingEnabled = false;
@@ -82,7 +82,7 @@ function drawMap() {
     console.log("x:" + p_x + " y;" + p_y + " p:" + power);
 }
 
-// î•ñ•`‰æ
+// æƒ…å ±æç”»
 function drawInfo() {
 
     context.lineWidth = Math.min(8*power,8);
@@ -99,11 +99,11 @@ function drawInfo() {
     context.font = "bold 48px 'YuGothic'";
     context.textAlign = "left";
     context.textBaseline = "top";
-    context.fillText("iomc‚¾‚¢‚½‚¢‚ ‚Á‚Ä‚é˜Hü}@Webƒo[ƒWƒ‡ƒ“", 20, 20, 1200);
-    context.strokeText("iomc‚¾‚¢‚½‚¢‚ ‚Á‚Ä‚é˜Hü}@Webƒo[ƒWƒ‡ƒ“", 20, 20, 1200);
+    context.fillText("iomcã ã„ãŸã„ã‚ã£ã¦ã‚‹è·¯ç·šå›³ã€€Webãƒãƒ¼ã‚¸ãƒ§ãƒ³", 20, 20, 1200);
+    context.strokeText("iomcã ã„ãŸã„ã‚ã£ã¦ã‚‹è·¯ç·šå›³ã€€Webãƒãƒ¼ã‚¸ãƒ§ãƒ³", 20, 20, 1200);
 }
 
-// ƒ}ƒbƒvˆÚ“®
+// ãƒãƒƒãƒ—ç§»å‹•
 function moveMap(e) {
 
     if (is_mouse_down == true) {
@@ -118,7 +118,7 @@ function moveMap(e) {
     mouse_y = e.clientY;
 }
 
-// ƒ}ƒbƒvŠg‘åk¬
+// ãƒãƒƒãƒ—æ‹¡å¤§ç¸®å°
 function powerMap(e) {
     if (e.wheelDelta > 0 && t_power < 16) {
         t_power *= 2;
@@ -130,13 +130,13 @@ function powerMap(e) {
     powerAnm();
 }
 
-// ƒ}ƒbƒvŠg‘åk¬ƒAƒjƒ[ƒVƒ‡ƒ“
+// ãƒãƒƒãƒ—æ‹¡å¤§ç¸®å°ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 const powerAnm = () => {
 
     power = power * 19 / 20 + t_power * 1 / 20;
-    //ƒR[ƒ‹ƒoƒbƒNŠÖ”‚ğŒJ‚è•Ô‚·ğŒi•K—v‚É‰‚¶‚Äİ’èj
+    //ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã‚’ç¹°ã‚Šè¿”ã™æ¡ä»¶ï¼ˆå¿…è¦ã«å¿œã˜ã¦è¨­å®šï¼‰
     if (Math.abs(t_power - power) > 0.001) {
-        //requestAnimationFrame() ‚ğg‚Á‚Ä©giƒR[ƒ‹ƒoƒbƒNŠÖ”j‚ğŒÄ‚Ño‚·iŒJ‚è•Ô‚µj
+        //requestAnimationFrame() ã‚’ä½¿ã£ã¦è‡ªèº«ï¼ˆã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆç¹°ã‚Šè¿”ã—ï¼‰
         requestAnimationFrame(powerAnm);
     } else {
         power = t_power;
@@ -146,7 +146,7 @@ const powerAnm = () => {
     drawInfo();
 }  
 
-// ƒ}ƒbƒv§ŒÀ
+// ãƒãƒƒãƒ—åˆ¶é™
 function moveClamp() {
     if (p_x > 501 * map_urls_x.length / 2 - m_w / (2 * power)) {
         p_x = 501 * map_urls_x.length / 2 - m_w / (2 * power);
@@ -162,7 +162,7 @@ function moveClamp() {
     }
 }
 
-// ‰w‚Ì•`‰æ
+// é§…ã®æç”»
 function drawSt(x, y) {
 
     context.fillStyle = "rgba(0, 0, 0, 1)";
