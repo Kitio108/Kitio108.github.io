@@ -16,6 +16,17 @@ for (i = 0; i < maps.length; i++) {
     }
 }
 
+
+
+
+// XMLHttpRequestインスタンスを作成
+let request = new XMLHttpRequest();
+// JSONファイルが置いてあるパスを記述
+request.open("GET", "./data.json");
+request.send();
+
+
+
 // パラメータ
 var m_w = 300;
 var m_h = 150;
@@ -165,10 +176,11 @@ function moveClamp() {
 // 駅の描画
 function drawSt(x, y) {
 
+    s = Math.min(8 * power, 8);
     context.fillStyle = "rgba(0, 0, 0, 1)";
-    context.fillRect((- p_x + x) * power + m_w / 2 - 16, (- p_y + y) * power + m_h / 2 - 16, 32, 32);
+    context.fillRect((- p_x + x) * power + m_w / 2 - 2 * s, (- p_y + y) * power + m_h / 2 - 2 * s, 4 * s, 4 * s);
     context.fillStyle = "rgba(255, 255, 255, 1)";
-    context.fillRect((- p_x + x) * power + m_w / 2 - 8, (- p_y + y) * power + m_h / 2 - 8, 16, 16);
+    context.fillRect((- p_x + x) * power + m_w / 2 - s, (- p_y + y) * power + m_h / 2 - s, 2 * s, 2 * s);
 }
 
 function drawLine(p) {

@@ -1,2 +1,9 @@
-console.log("１");
-console.log("２");
+var d = document.querySelector("div");
+
+function appendCircle() {
+    d.innerHTML += "〇"
+}
+
+function appendCross() {
+    d.innerHTML +="✕"
+}
