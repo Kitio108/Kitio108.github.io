@@ -1,50 +1,51 @@
 // 要素取得
-var screen = document.getElementById('screen');
-var canvas = document.getElementById('map');
-var context = canvas.getContext('2d');
+let screen = document.getElementById('screen');
+let canvas = document.getElementById('map');
+let context = canvas.getContext('2d');
 
-var map_urls_x = ["/x-6", "/x-5", "/x-4", "/x-3", "/x-2", "/x-1", "/x0", "/x1", "/x2", "/x3", "/x4", "/x5"];
-var map_urls_z = ["/z-6", "/z-5", "/z-4", "/z-3", "/z-2", "/z-1", "/z0", "/z1", "/z2", "/z3", "/z4", "/z5"];
+let map_urls_x = [ "/x-9", "/x-8", "/x-7", "/x-6", "/x-5", "/x-4", "/x-3", "/x-2", "/x-1", "/x0", "/x1", "/x2", "/x3", "/x4", "/x5", "/x6", "/x7", "/x8" ];
+let map_urls_z = [ "/z-9", "/z-8", "/z-7", "/z-6", "/z-5", "/z-4", "/z-3", "/z-2", "/z-1", "/z0", "/z1", "/z2", "/z3", "/z4", "/z5", "/z6", "/z7", "/z8" ];
 
-var onload_map_count = 0;
-var maps = new Array(map_urls_x.length);
-for (i = 0; i < maps.length; i++) {
+let onload_map_count = 0;
+let maps = new Array(map_urls_x.length);
+for (let i = 0; i < maps.length; i++) {
     maps[i] = new Array(map_urls_z.length);
-    for (j = 0; j < maps[i].length; j++) {
+    for (let j = 0; j < maps[i].length; j++) {
         maps[i][j] = new Image();
         maps[i][j].src = "https://maps.misskey.io/maps/world/tiles/1" + map_urls_x[i] + map_urls_z[j] + ".png?445683";
     }
 }
 
+//"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir="C://Chrome dev session"
 
-
-
-// XMLHttpRequestインスタンスを作成
-let request = new XMLHttpRequest();
-// JSONファイルが置いてあるパスを記述
-request.open("GET", "./data.json");
-request.send();
-
-
+// XMLHttpRequestを使ってjsonデータを読み込む
+let hakodate_request = new XMLHttpRequest();
+hakodate_request.open('GET', "hakodate.json");
+hakodate_request.responseType = 'json';
+hakodate_request.send();
+let hakodate;
+hakodate_request.onload = function () {
+    hakodate = hakodate_request.response;
+}
 
 // パラメータ
-var m_w = 300;
-var m_h = 150;
-var p_x = 0;
-var p_y = 0;
-var power = 1;
-var t_power = 1;
+let m_w = 300;
+let m_h = 150;
+let p_x = 0;
+let p_y = 0;
+let power = 1;
+let t_power = 1;
 
-var is_mouse_down = false;
-var mouse_x = 0;
-var mouse_y = 0;
+let is_mouse_down = false;
+let mouse_x = 0;
+let mouse_y = 0;
 
 // メイン処理 ここから ----------------------------------------------------------------
 
 // キャンパス、マップ初期化
 resizeCanvas();
-for (i = 0; i < maps.length; i++) {
-    for (j = 0; j < maps[i].length; j++) {
+for (let i = 0; i < maps.length; i++) {
+    for (let j = 0; j < maps[i].length; j++) {
         maps[i][j].onload = function () {
             onload_map_count++;
             if (onload_map_count >= map_urls_x.length * map_urls_z.length) {
@@ -62,10 +63,9 @@ for (i = 0; i < maps.length; i++) {
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize", drawMap);
 window.addEventListener("resize", drawInfo);
-
-window.addEventListener("mousedown", function () { is_mouse_down = true; });
-window.addEventListener("mouseup", function () { is_mouse_down = false; });
-window.addEventListener("mousemove", function (e) { moveMap(e);});
+window.addEventListener("mousedown", function (e) { is_mouse_down = true; console.log("クリック地点は x:" + Math.round((p_x + (e.clientX - m_w / 2) / power) * 10) / 10 + " z;" + Math.round((p_y + (e.clientY - m_h / 2) / power) * 10) / 10); });
+window.addEventListener("mouseup", function (e) { is_mouse_down = false; });
+window.addEventListener("mousemove", function (e) { moveMap(e); });
 window.addEventListener("wheel", function (e) { powerMap(e); });
 
 // メイン処理 ここまで ----------------------------------------------------------------
@@ -83,35 +83,40 @@ function resizeCanvas() {
 function drawMap() {
 
     context.imageSmoothingEnabled = false;
-    for (i = 0; i < maps.length; i++) {
-        for (j = 0; j < maps[i].length; j++) {
-            context.drawImage(maps[i][j], 0, 0, 501, 501, (-501 * map_urls_x.length / 2 - p_x + 501 * i) * power + m_w / 2, (-501 * map_urls_z.length / 2 - p_y + 501 * j) * power + m_h / 2, 501 * power, 501 * power);
+    for (let i = 0; i < maps.length; i++) {
+        for (let j = 0; j < maps[i].length; j++) {
+            context.drawImage(maps[i][j], 0, 0, 500, 500, (-500 * map_urls_x.length / 2 - p_x + 500 * i) * power + m_w / 2, (-500 * map_urls_z.length / 2 - p_y + 500 * j) * power + m_h / 2, 500 * power, 500 * power);
         }
     }
     context.fillStyle = "rgba(255, 255, 255, 0.5)";
     context.fillRect(0, 0, m_w, m_h);
-    console.log("x:" + p_x + " y;" + p_y + " p:" + power);
+    console.log("x:" + Math.round(p_x) + " y;" + Math.round(p_y) + " p:" + power);
 }
 
 // 情報描画
 function drawInfo() {
 
-    context.lineWidth = Math.min(8*power,8);
+    context.lineWidth = Math.min(4 * power, 8);
+    context.font = "bold 24px 'YuGothic Medium'";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
 
-    drawLine([[0, 0], [136, 342], [-577, 470]]);
+    for (let i = 0; i < hakodate.line.length; i++) {
+        drawLine(hakodate.line[i].route, hakodate.line[i].main_color);
+    }
 
-    drawSt(0, 0);
-    drawSt(136, 342);
-    drawSt(-577, 470);
+    for (let i = 0; i < hakodate.line.length; i++) {
+        for (let j = 0; j < hakodate.line[i].route.length; j++) {
+            if (hakodate.line[i].route[j].length == 3) {
+                drawSt("", hakodate.line[i].route[j][0], hakodate.line[i].route[j][1]);
+            }
+        }
+    }
 
-    context.lineWidth = 2;
-    context.strokeStyle = "black";
-    context.fillStyle = "white";
-    context.font = "bold 48px 'YuGothic'";
-    context.textAlign = "left";
-    context.textBaseline = "top";
-    context.fillText("iomcだいたいあってる路線図　Webバージョン", 20, 20, 1200);
-    context.strokeText("iomcだいたいあってる路線図　Webバージョン", 20, 20, 1200);
+    /*
+    for (let i = 0; i < hakodate.station.length; i++) {
+        drawSt(hakodate.station[i].name, hakodate.station[i].x, hakodate.station[i].z);
+    }*/
 }
 
 // マップ移動
@@ -134,8 +139,7 @@ function powerMap(e) {
     if (e.wheelDelta > 0 && t_power < 16) {
         t_power *= 2;
     }
-    else if (e.wheelDelta < 0 && t_power > 0.5)
-    {
+    else if (e.wheelDelta < 0 && t_power > 0.25) {
         t_power *= 0.5;
     }
     powerAnm();
@@ -155,40 +159,49 @@ const powerAnm = () => {
     moveClamp();
     drawMap();
     drawInfo();
-}  
+}
 
 // マップ制限
 function moveClamp() {
-    if (p_x > 501 * map_urls_x.length / 2 - m_w / (2 * power)) {
-        p_x = 501 * map_urls_x.length / 2 - m_w / (2 * power);
+    if (p_x > 500 * map_urls_x.length / 2 - m_w / (2 * power)) {
+        p_x = 500 * map_urls_x.length / 2 - m_w / (2 * power);
     }
-    if (p_x < -501 * map_urls_x.length / 2 + m_w / (2 * power)) {
-        p_x = -501 * map_urls_x.length / 2 + m_w / (2 * power);
+    if (p_x < -500 * map_urls_x.length / 2 + m_w / (2 * power)) {
+        p_x = -500 * map_urls_x.length / 2 + m_w / (2 * power);
     }
-    if (p_y > 501 * map_urls_z.length / 2 - m_h / (2 * power)) {
-        p_y = 501 * map_urls_z.length / 2 - m_h / (2 * power);
+    if (p_y > 500 * map_urls_z.length / 2 - m_h / (2 * power)) {
+        p_y = 500 * map_urls_z.length / 2 - m_h / (2 * power);
     }
-    if (p_y < -501 * map_urls_z.length / 2 + m_h / (2 * power)) {
-        p_y = -501 * map_urls_z.length / 2 + m_h / (2 * power);
+    if (p_y < -500 * map_urls_z.length / 2 + m_h / (2 * power)) {
+        p_y = -500 * map_urls_z.length / 2 + m_h / (2 * power);
     }
 }
 
 // 駅の描画
-function drawSt(x, y) {
+function drawSt(n, x, y) {
 
-    s = Math.min(8 * power, 8);
+    s = Math.min(4 * power, 16);
     context.fillStyle = "rgba(0, 0, 0, 1)";
     context.fillRect((- p_x + x) * power + m_w / 2 - 2 * s, (- p_y + y) * power + m_h / 2 - 2 * s, 4 * s, 4 * s);
     context.fillStyle = "rgba(255, 255, 255, 1)";
     context.fillRect((- p_x + x) * power + m_w / 2 - s, (- p_y + y) * power + m_h / 2 - s, 2 * s, 2 * s);
+
+    if (power >= 2) {
+        context.lineWidth = 4;
+        context.strokeStyle = "black";
+        context.fillStyle = "white";
+        context.strokeText(n, (- p_x + x) * power + m_w / 2, (- p_y + y) * power + m_h / 2, 200);
+        context.fillText(n, (- p_x + x) * power + m_w / 2, (- p_y + y) * power + m_h / 2, 200);
+    }
+
 }
 
-function drawLine(p) {
+function drawLine(p, c) {
 
     context.beginPath();
-    context.strokeStyle = "red";
+    context.strokeStyle = "rgba(" + c[0] + ", " + c[1] + "," + c[2] + ", 1)";
     context.moveTo((- p_x + p[0][0]) * power + m_w / 2, (- p_y + p[0][1]) * power + m_h / 2);
-    for (i = 1; i < p.length; i++) {
+    for (let i = 1; i < p.length; i++) {
         context.lineTo((- p_x + p[i][0]) * power + m_w / 2, (- p_y + p[i][1]) * power + m_h / 2);
     }
     context.stroke();

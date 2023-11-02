@@ -1,9 +1,17 @@
-var d = document.querySelector("div");
-
-function appendCircle() {
-    d.innerHTML += "〇"
+function plusOne() {
+    let element = document.querySelector('#modal');
+    let currentNumber = Number(element.innerHTML);
+    element.innerHTML = currentNumber + 1;
 }
 
-function appendCross() {
-    d.innerHTML +="✕"
+function plusFive() {
+    let element = document.querySelector('#modal');
+    let currentNumber = Number(element.innerHTML);
+    element.innerHTML = currentNumber + 5;
+}
+
+function plusTen() {
+    let element = document.querySelector('#modal');
+    let currentNumber = Number(element.innerHTML);
+    element.innerHTML = currentNumber + 10;
 }
