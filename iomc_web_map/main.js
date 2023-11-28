@@ -17,7 +17,6 @@ for (let i = 0; i < maps.length; i++) {
 }
 
 //"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir="C://Chrome dev session"
-
 // XMLHttpRequestを使ってjsonデータを読み込む
 let hakodate_request = new XMLHttpRequest();
 hakodate_request.open('GET', "hakodate.json");
@@ -27,6 +26,8 @@ let hakodate;
 hakodate_request.onload = function () {
     hakodate = hakodate_request.response;
 }
+
+
 
 // パラメータ
 let m_w = 300;
@@ -113,10 +114,6 @@ function drawInfo() {
         }
     }
 
-    /*
-    for (let i = 0; i < hakodate.station.length; i++) {
-        drawSt(hakodate.station[i].name, hakodate.station[i].x, hakodate.station[i].z);
-    }*/
 }
 
 // マップ移動
