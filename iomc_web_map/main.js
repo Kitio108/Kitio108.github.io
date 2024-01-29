@@ -33,10 +33,12 @@ hakodate_request.onload = function () {
     hakodate = hakodate_request.response;
 }
 
+/*
 var data = [];
 fetch("https://script.google.com/macros/s/AKfycbymE_piPiNVM85qrm3VtaoZIztzwgkHkDjbTObvb_0/dev")
     .then(function (response) { return response.json(); console.log("ng"); })
     .then(function (json) { data = json; console.log("ok"); console.log(data); drawInfo(); });
+    */
 // データ取得 ここまで --------------------------------------------------------------------------------------------------------------------------------
 
 // メイン処理 ここから --------------------------------------------------------------------------------------------------------------------------------
@@ -113,9 +115,11 @@ function drawInfo() {
         }
     }
 
+    /*
     for (let i = 0; i < data.points.length; i++) {
         drawPoint(data.points[i].name, data.points[i].x, data.points[i].z);
     }
+    */
 }
 
 // マップ移動
